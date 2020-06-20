@@ -5,6 +5,9 @@ import Member from '../views/Member.vue'
 import Shopcar from '../views/Shopcar.vue'
 import Search from '../views/Search.vue'
 
+import NewsList from '../views/NewsList'
+import NewsInfo from '../views/NewsInfo'
+
 
 Vue.use(VueRouter)
 
@@ -25,6 +28,14 @@ const routes = [{
     }, {
         path: '/search',
         component: Search
+    },
+    {
+        path: '/home/newslist',
+        component: NewsList
+    },
+    {
+        path: '/home/newsinfo/:id',
+        component: NewsInfo
     }
 ]
 

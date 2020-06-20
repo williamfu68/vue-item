@@ -8,6 +8,8 @@ import store from './store'
 import VueRouter from 'vue-router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+//导入node格式化时间的插件
+import moment from 'moment'
 
 //导入所需样式
 import 'mint-ui/lib/style.css'
@@ -25,6 +27,9 @@ Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 Vue.use(Swipe)
 Vue.use(SwipeItem)
+Vue.filter('dataFormat', function(dataStr, pattern = "YYYY-MM-DD HH:mm:ss") {
+    return moment(dataStr).format(pattern);
+})
 
 
 Vue.config.productionTip = false

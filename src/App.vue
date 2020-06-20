@@ -41,23 +41,23 @@ html,body{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+//   text-align: center;
   color: #2c3e50;
-  padding-top:40px;
+  padding:40px 0 50px 0;
   overflow-x: hidden;
   position: relative;
 }
-.v-enter,.v-leave-to{
+.v-enter{
 	opacity: 0;
 	transform: translateX(100%);
-	position:absolute;
 }
 .v-leave-to{
 	opacity: 0;
 	transform: translateX(-100%);
+	position:absolute;
 }
 .v-enter-active,.v-leave-active{
-	transition:all .4s ease;
+	transition:all .6s ease;
 }
 	
 </style>
