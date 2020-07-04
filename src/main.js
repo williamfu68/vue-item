@@ -19,10 +19,11 @@ import './assets/css/index.less'
 import 'vant/lib/index.css'
 
 //按需导入 Mint-UI组件
-import { Header } from 'mint-ui'
+import { Header, Button } from 'mint-ui'
 import { Swipe, SwipeItem } from 'vant'
 
 Vue.component(Header.name, Header)
+Vue.component(Button.name, Button)
 Vue.use(VueRouter)
 Vue.use(VueAxios, axios)
 Vue.use(Swipe)

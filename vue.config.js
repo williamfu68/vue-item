@@ -6,14 +6,15 @@ module.exports = {
             '/api': {
                 target: 'http://127.0.0.1:8000',
                 ws: true,
-                changeOrigin: true
+                changeOrigin: true,
             },
             '/storage': {
                 target: 'http://127.0.0.1:8000',
                 ws: true,
                 changeOrigin: true
-            }
-        }
-
+            },
+        },
+        host: '0.0.0.0',
+        port: 8080,
     }
 }
