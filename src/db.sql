@@ -71,3 +71,93 @@ insert into comments(user_name,add_time,content) values ('匿名用户','2020-07
 insert into comments(user_name,add_time,content) values ('匿名用户','2020-07-04 12:12:12','大道无垠，精诚致远');
 insert into comments(user_name,add_time,content) values ('匿名用户','2020-07-04 12:12:12','大道无垠，精诚致远');
 insert into comments(user_name,add_time,content) values ('匿名用户','2020-07-04 12:12:12','大道无垠，精诚致远');
+
+create table category(
+    id int auto_increment primary key not null,
+    title varchar(50) not null
+);
+
+insert into category (title) values ('家居生活');
+insert into category (title) values ('摄影设计');
+insert into category (title) values ('空间设计');
+insert into category (title) values ('户型设计');
+insert into category (title) values ('摄影器材');
+insert into category (title) values ('摄影学习');
+insert into category (title) values ('明星写真');
+insert into category (title) values ('风景图片');
+
+create table imgList(
+    id int auto_increment primary key not null,
+    title varchar(50) not null,
+    pic varchar(50) not null,
+    abstract varchar(100) not null
+);
+
+insert into imglist(title,pic,abstract) values ('标题1','imgList_01.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题2','imgList_02.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题3','imgList_03.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题4','imgList_04.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题5','imgList_05.png','图片描述');
+
+insert into imglist(title,pic,abstract) values ('标题6','imgList_06.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题7','imgList_07.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题8','imgList_08.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题9','imgList_09.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题10','imgList_10.png','图片描述');
+
+insert into imglist(title,pic,abstract) values ('标题11','imgList_11.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题12','imgList_12.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题13','imgList_13.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题14','imgList_14.png','图片描述');
+insert into imglist(title,pic,abstract) values ('标题15','imgList_15.png','图片描述');
+
+insert into imglist(title,pic,abstract) values ('标题16','imgList_16.png','图片描述');
+
+create table photoinfo(
+    id int auto_increment primary key not null,
+    title varchar(50) not null,
+    click varchar(10) not null,
+    add_time varchar(50) not null
+);
+
+insert into photoinfo (title,click,add_time,content) values ('标题1','1','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题2','2','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题3','3','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题4','4','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题5','5','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题6','6','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题7','7','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题8','8','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题9','7','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题10','6','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题11','5','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题12','4','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题13','3','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题14','2','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题15','1','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+insert into photoinfo (title,click,add_time,content) values ('标题16','0','2020-07-07 12:12:12','图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片');
+
+create table thumbnail(
+    id int auto_increment primary key not null,
+    msrc varchar(200) not null,
+    src varchar(200) not null,
+    w varchar(20) default 1920,
+    h varchar(20) default 1080
+);
+
+insert into thumbnail (msrc,src) values ('imgList_01.png','imgList_01.png');
+insert into thumbnail (msrc,src) values ('imgList_02.png','imgList_02.png');
+insert into thumbnail (msrc,src) values ('imgList_03.png','imgList_03.png');
+insert into thumbnail (msrc,src) values ('imgList_04.png','imgList_04.png');
+insert into thumbnail (msrc,src) values ('imgList_05.png','imgList_05.png');
+insert into thumbnail (msrc,src) values ('imgList_06.png','imgList_06.png');
+insert into thumbnail (msrc,src) values ('imgList_07.png','imgList_07.png');
+insert into thumbnail (msrc,src) values ('imgList_08.png','imgList_08.png');
+insert into thumbnail (msrc,src) values ('imgList_09.png','imgList_09.png');
+insert into thumbnail (msrc,src) values ('imgList_10.png','imgList_10.png');
+insert into thumbnail (msrc,src) values ('imgList_11.png','imgList_11.png');
+insert into thumbnail (msrc,src) values ('imgList_12.png','imgList_12.png');
+insert into thumbnail (msrc,src) values ('imgList_13.png','imgList_13.png');
+insert into thumbnail (msrc,src) values ('imgList_14.png','imgList_14.png');
+insert into thumbnail (msrc,src) values ('imgList_15.png','imgList_15.png');
+insert into thumbnail (msrc,src) values ('imgList_16.png','imgList_16.png');

@@ -3,7 +3,7 @@
     <!--轮播图-->
     <van-swipe class="my-swipe" :autoplay="5000" indicator-color="white">
         <van-swipe-item v-for = "item in imgList" :key = "item.id">
-        <img :src = "'/storage/swipe2/'+ item.pic">
+        <img :src = "'/storage/swipe/'+ item.pic">
     </van-swipe-item>
     </van-swipe>
     <!--六宫格-->
@@ -11,12 +11,12 @@
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
                 <img src="../assets/img/news.png" alt="">
                 <div class="mui-media-body">新闻资讯</div></router-link></li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photolist">
                 <img src="../assets/img/picture.png" alt="">
-                <div class="mui-media-body">图片分享</div></a></li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+                <div class="mui-media-body">图片分享</div></router-link></li>
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodslist">
                 <img src="../assets/img/goods.png" alt="">
-                <div class="mui-media-body">商品购买</div></a></li>
+                <div class="mui-media-body">商品购买</div></router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
                 <img src="../assets/img/message.png" alt="">
                 <div class="mui-media-body">留言反馈</div></a></li>
@@ -62,8 +62,11 @@ export default {
 
 <style lang = "less" scoped>
     .my-swipe{
+        width:100%;
+        height:calc(100vw * 430 / 1040);
         img{
             width:100%;
+            height:100%;
         }
     }
     .mui-grid-view.mui-grid-9{

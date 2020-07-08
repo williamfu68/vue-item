@@ -2,8 +2,8 @@
   <div class = "cmt-container">
     <h1>发表评论</h1>
     <hr>
-    <textarea placeholder = "请输入您的评论（最多120字）" maxlength="120"></textarea>
-    <mt-button type = "primary" szie = "large" style = "width:100%">发表评论</mt-button>
+    <textarea placeholder = "请输入您的评论（最多120字）" maxlength="120" v-model= "msg"></textarea>
+    <mt-button type = "primary" szie = "large" style = "width:100%" @click = "postComment">发表评论</mt-button>
     
     <div class="cmt-list">
         <div class="cmt-item" v-for = "(item,i) in commentsList" :key = "i">
@@ -25,8 +25,9 @@ import { Toast } from 'mint-ui'
 export default {
     data() {
         return {
-            commentsList:[],
-            pageIndex:1
+            commentsList:[],//所有评论数据
+            pageIndex:1,//默认展示第一页数据
+            msg:'' //评论输入的内容
         }
     },
     created() {
@@ -43,13 +44,37 @@ export default {
                     Toast('获取评论失败！');
                 }
             }).catch(err=>{
-                Toast('暂无更多评论！');
+                Toast('获取评论失败！');
                 console.log(err);
             }) 
         },
         getMore() {
             this.pageIndex++;
             this.getComments();
+        },
+        postComment() {
+            if(this.msg.trim().length == 0) {
+                return Toast('评论内容不能为空！');
+            }
+            //参数1： 请求的的URL地址
+            //参数2： 提交给服务器的数据对象{content:this.msg}
+            //参数3： 定义提交时候，表单中数据的格式 {emulatedJSON:true}
+            this.axios.post('http://127.0.0.1:8000/api/postComments',
+            {content:this.msg.trim()},
+            {emulateJSON:true}
+            ).then(res=> {
+                if(res.status == 200) {
+                    //1.拼接出一个评论对象
+                    // console.log(res); //1
+                    var cmt = {
+                        user_name:'匿名用户',
+                        add_time:'2020-07-04 12:12:12',
+                        content:this.msg.trim()
+                    };
+                    this.commentsList.unshift(cmt);
+                    this.msg = '';
+                }
+            })
         }
         
     },

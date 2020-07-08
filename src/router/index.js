@@ -7,6 +7,9 @@ import Search from '../views/Search.vue'
 
 import NewsList from '../views/NewsList'
 import NewsInfo from '../views/NewsInfo'
+import PhotoList from '../views/PhotoList'
+import PhotoInfo from '../views/PhotoInfo'
+import GoodsList from '../views/GoodsList'
 
 
 Vue.use(VueRouter)
@@ -36,6 +39,18 @@ const routes = [{
     {
         path: '/home/newsinfo/:id',
         component: NewsInfo
+    },
+    {
+        path: '/home/photolist',
+        component: PhotoList
+    },
+    {
+        path: '/home/photoinfo/:id',
+        component: PhotoInfo
+    },
+    {
+        path: '/home/goodslist',
+        component: GoodsList
     }
 ]
 
