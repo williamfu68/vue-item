@@ -7,7 +7,7 @@
     </p>
     <hr>
     <!--缩略图区域-->
-         <vue-preview :slides="list" @close="handleClose"></vue-preview>
+         <vue-preview :slides="thumbnail" @close="handleClose"></vue-preview>
 
     <!--图片内容区域-->
     <div class="content">
@@ -26,8 +26,14 @@ export default {
     data() {
         return {
             id:this.$route.params.id, //从路由获取到的图片id
-            photoInfo:[], //图片详情
-            list:[] //缩略图
+            photoInfo:{
+                // id: 1,
+                // title: "标题1",
+                // add_time: "2020-07-07 12:12:12",
+                // click: "0",
+                // content: "图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片详情描述图片",
+            }, //图片详情
+            thumbnail:[] //缩略图
         }
     },
     created() {
@@ -36,7 +42,7 @@ export default {
     },
     methods: {
         getPhotoInfo() {
-            this.axios.get('http://127.0.0.1:8000/api/getPhotoInfo/' + this.id).then(res=>{
+            this.axios.get('/api/getPhotoInfo/' + this.id).then(res=>{
                 if(res.status == 200) {
                     this.photoInfo = res.data;
                 } else {
@@ -47,10 +53,10 @@ export default {
             })
         },
         getThumbnail() {
-            this.axios.get('http://127.0.0.1:8000/api/getThumbnail/' + this.id).then(res=>{
+            this.axios.get('/api/getThumbnail/' + this.id).then(res=>{
                 if(res.status == 200) {
-                    this.list.push(res.data);
-                    this.list.forEach(item=>{
+                    this.thumbnail.push(res.data);
+                    this.thumbnail.forEach(item=>{
                         item.msrc = '/storage/imgList/' + item.msrc
                         item.src = '/storage/imgList/' + item.src
                     })
@@ -58,13 +64,13 @@ export default {
                     Toast('获取缩略图失败！');
                 }
             }).catch(err=>{
+                // Toast('获取缩略图失败！');
                 console.log(err);
-                Toast('获取缩略图失败！');
             })
             //循环每个图片数据，补全图片的宽和高
         },
         handleClose () {
-        console.log('close event');
+        // console.log('close event');
       }
     },
     components:{

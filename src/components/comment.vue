@@ -8,7 +8,8 @@
     <div class="cmt-list">
         <div class="cmt-item" v-for = "(item,i) in commentsList" :key = "i">
             <div class="cmt-title">
-            第{{i+1}}楼&nbsp;&nbsp;用户：{{item.user_name}}&nbsp;&nbsp;发表时间：{{item.add_time}}
+            <span>第{{i+1}}楼&nbsp;&nbsp;用户：{{item.user_name}}</span>
+            <span>发表时间：{{item.add_time}}</span>
             </div>
             <div class="cmt-body">
             {{item.content}}
@@ -25,7 +26,69 @@ import { Toast } from 'mint-ui'
 export default {
     data() {
         return {
-            commentsList:[],//所有评论数据
+            commentsList:[
+                // {   
+                //     id: 1,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 2,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 3,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 4,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 5,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 6,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 7,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 8,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 9,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                // {   
+                //     id: 10,
+                //     user_name: "匿名用户",
+                //     add_time: "2020-07-04 12:12:12",
+                //     content: "大道无垠，精诚致远", 
+                // },
+                
+            ],//所有评论数据
             pageIndex:1,//默认展示第一页数据
             msg:'' //评论输入的内容
         }
@@ -35,16 +98,15 @@ export default {
     },
     methods:{
         getComments() {
-            this.axios.get('http://127.0.0.1:8000/api/getComments' + this.id + '/pageIndex=' + this.pageIndex).then(res=>{
+            this.axios.get('/api/getComments' + this.id + '/pageIndex=' + this.pageIndex).then(res=>{
                 if(res.status == 200){
-                    // console.log(res);
                     this.commentsList = this.commentsList.concat(res.data);
                     // console.log(this.commentsList);
                 } else {
                     Toast('获取评论失败！');
                 }
             }).catch(err=>{
-                Toast('获取评论失败！');
+                // Toast('获取评论失败！');
                 console.log(err);
             }) 
         },
@@ -59,7 +121,7 @@ export default {
             //参数1： 请求的的URL地址
             //参数2： 提交给服务器的数据对象{content:this.msg}
             //参数3： 定义提交时候，表单中数据的格式 {emulatedJSON:true}
-            this.axios.post('http://127.0.0.1:8000/api/postComments',
+            this.axios.post('/api/postComments',
             {content:this.msg.trim()},
             {emulateJSON:true}
             ).then(res=> {
@@ -82,7 +144,7 @@ export default {
 }
 </script>
 
-<style lang = "less" scoped>
+<style lang = "less">
     .cmt-container{
         
         h1{
@@ -100,6 +162,9 @@ export default {
                     font-size:12px;
                     line-height: 30px;
                     background-color:#ccc;
+                    display: flex;
+                    justify-content: space-between;
+                    
                 }
                 .cmt-body{
                     line-height: 35px;
